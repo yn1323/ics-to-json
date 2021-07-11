@@ -42,6 +42,7 @@ const addScheduledEvent = (currentEvent, val) => {
   
   const freq = frequencyMap[FREQ];
   const until = moment(UNTIL, DATEFORMAT);
+  const endDate = moment(until).clone().add(1, 'days');
   const interval = parseInt(INTERVAL, 10);
   const originalStartDate = moment(currentEvent.startDate, DATEFORMAT);
   const originalEndDate = moment(currentEvent.endDate, DATEFORMAT);
@@ -54,7 +55,7 @@ const addScheduledEvent = (currentEvent, val) => {
   let currentEndDate = originalEndDate.clone()
   let i = 0;
   const dateToAddSchedule = []
-  while(currentStartDate.isSame(until, 'day') || currentStartDate.isBefore(until, 'day')){
+  while(currentStartDate.isBefore(endDate, 'day')){
     if(i % interval === 0){
       dateToAddSchedule.push({
         startDate: currentStartDate.clone().format(DATEFORMAT), 
