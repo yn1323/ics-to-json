@@ -18,7 +18,7 @@ Convert the ICS calendar format to JSON data to consume in web apps.
 ## Usage
 
 ```js
-import icsToJson from "yn1323/ics-to-json";
+import icsToJson from "ics-to-json";
 
 // Get ICS text however you like, example below
 // Make sure you have the right CORS settings if needed
