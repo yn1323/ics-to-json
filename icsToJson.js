@@ -54,7 +54,7 @@ const addScheduledEvent = (currentEvent, val) => {
   let currentEndDate = originalEndDate.clone()
   let i = 0;
   const dateToAddSchedule = []
-  while(currentStartDate.isBefore(until)){
+  while(currentStartDate.isSame(until, 'day') || currentStartDate.isBefore(until, 'day')){
     if(i % interval === 0){
       dateToAddSchedule.push({
         startDate: currentStartDate.clone().format(DATEFORMAT), 
