@@ -3,24 +3,32 @@
     <br>
 </p>
 
-----------
+---
 
 Convert the ICS calendar format to JSON data to consume in web apps.
+
+## Installation
+
+`npm install yn1323/ics-to-json`
+
+## Difference from Original
+
+- Add `RRULE` to JSON
 
 ## Usage
 
 ```js
-import icsToJson from 'ics-to-json'
+import icsToJson from "yn1323/ics-to-json";
 
 // Get ICS text however you like, example below
 // Make sure you have the right CORS settings if needed
 const convert = async (fileLocation) => {
-	const icsRes = await fetch(fileLocation)
-	const icsData = await icsRes.text()
-	// Convert
-	const data = icsToJson(icsData)
-	return data
-}
+  const icsRes = await fetch(fileLocation);
+  const icsData = await icsRes.text();
+  // Convert
+  const data = icsToJson(icsData);
+  return data;
+};
 ```
 
 ## Format
@@ -36,6 +44,7 @@ Result is an array of:
   summary: 'Summary!'
 }
 ```
+
 ## Upcoming
 
 - Ability to reverse conversion
