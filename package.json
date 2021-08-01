@@ -13,11 +13,11 @@
     "ics-to-json",
     "json"
   ],
-  "author": "Connor Wilson <me@cwlsn.com>",
+  "author": "yn1323 <yn1323@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cwlsn/ics-to-json.git"
+    "url": "https://github.com/yn1323/ics-to-json-extended"
   },
   "dependencies": {
     "moment": "^2.29.1"
