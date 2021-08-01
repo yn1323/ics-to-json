@@ -9,7 +9,7 @@ Convert the ICS calendar format to JSON data to consume in web apps.
 
 ## Installation
 
-`npm install yn1323/ics-to-json`
+`npm install ics-to-json-extended`
 
 ## Difference from Original
 
@@ -18,7 +18,7 @@ Convert the ICS calendar format to JSON data to consume in web apps.
 ## Usage
 
 ```js
-import icsToJson from "ics-to-json";
+import icsToJson from "ics-to-json-extended";
 
 // Get ICS text however you like, example below
 // Make sure you have the right CORS settings if needed
@@ -44,8 +44,3 @@ Result is an array of:
   summary: 'Summary!'
 }
 ```
-
-## Upcoming
-
-- Ability to reverse conversion
-- Include the rest of the keys from the ICS format
