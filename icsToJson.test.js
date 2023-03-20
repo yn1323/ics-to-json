@@ -36,54 +36,54 @@ END:VCALENDAR`;
 
 const sampleResult = [
   {
-    startDate: "20130802T103400",
-    endDate: "20130802T110400",
+    startDate: "2013-08-02T10:34:00",
+    endDate: "2013-08-02T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130809T103400",
-    endDate: "20130809T110400",
+    startDate: "2013-08-09T10:34:00",
+    endDate: "2013-08-09T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130816T103400",
-    endDate: "20130816T110400",
+    startDate: "2013-08-16T10:34:00",
+    endDate: "2013-08-16T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130823T103400",
-    endDate: "20130823T110400",
+    startDate: "2013-08-23T10:34:00",
+    endDate: "2013-08-23T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130830T103400",
-    endDate: "20130830T110400",
+    startDate: "2013-08-30T10:34:00",
+    endDate: "2013-08-30T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130906T103400",
-    endDate: "20130906T110400",
+    startDate: "2013-09-06T10:34:00",
+    endDate: "2013-09-06T11:04:00",
     description: "Access-A-Ride to 900 Jay St., Brooklyn",
     location: "1000 Broadway Ave., Brooklyn",
-    summary: "Access-A-Ride Pickup"
+    summary: "Access-A-Ride Pickup",
   },
   {
-    startDate: "20130802T200000",
-    endDate: "20130802T203000",
+    startDate: "2013-08-02T20:00:00",
+    endDate: "2013-08-02T20:30:00",
     description: "Access-A-Ride to 1000 Broadway Ave., Brooklyn",
     location: "900 Jay St., Brooklyn",
-    summary: "Access-A-Ride Pickup"
-  }
+    summary: "Access-A-Ride Pickup",
+  },
 ];
 
 test("sample file produces expected output", () => {

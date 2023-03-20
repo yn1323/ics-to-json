@@ -1,7 +1,7 @@
 import moment from "moment";
 
 const NEW_LINE = /\r\n|\n|\r/;
-const DATEFORMAT = "YYYYMMDD[T]HHmmss";
+const DATEFORMAT = "YYYY-MM-DD[T]HH:mm:ss";
 
 const EVENT = "VEVENT";
 const EVENT_START = "BEGIN";
@@ -132,10 +132,10 @@ const icsToJson = (icsData) => {
         }
         break;
       case START_DATE:
-        currentObj[keyMap[START_DATE]] = value;
+        currentObj[keyMap[START_DATE]] = moment(value).format(DATEFORMAT);
         break;
       case END_DATE:
-        currentObj[keyMap[END_DATE]] = value;
+        currentObj[keyMap[END_DATE]] = moment(value).format(DATEFORMAT);
         break;
       case DESCRIPTION:
         if (!isAlarm) currentObj[keyMap[DESCRIPTION]] = clean(value);
