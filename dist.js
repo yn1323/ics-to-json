@@ -24,7 +24,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var NEW_LINE = /\r\n|\n|\r/;
-var DATEFORMAT = 'YYYYMMDD[T]HHmmss';
+var DATEFORMAT = "YYYY-MM-DD[T]HH:mm:ss";
 var EVENT = "VEVENT";
 var EVENT_START = "BEGIN";
 var EVENT_END = "END";
@@ -47,8 +47,8 @@ var clean = function clean(string) {
 };
 
 var addScheduledEvent = function addScheduledEvent(currentEvent, val) {
-  var conditions = val.split(';').reduce(function (acc, cur) {
-    var _cur$split = cur.split('='),
+  var conditions = val.split(";").reduce(function (acc, cur) {
+    var _cur$split = cur.split("="),
         _cur$split2 = _slicedToArray(_cur$split, 2),
         k = _cur$split2[0],
         v = _cur$split2[1];
@@ -62,6 +62,7 @@ var addScheduledEvent = function addScheduledEvent(currentEvent, val) {
   if (!UNTIL) return [];
   var freq = frequencyMap[FREQ];
   var until = (0, _moment.default)(UNTIL, DATEFORMAT);
+  var endDate = (0, _moment.default)(until).clone().add(1, "days");
   var interval = parseInt(INTERVAL, 10);
   var originalStartDate = (0, _moment.default)(currentEvent.startDate, DATEFORMAT);
   var originalEndDate = (0, _moment.default)(currentEvent.endDate, DATEFORMAT);
@@ -75,7 +76,7 @@ var addScheduledEvent = function addScheduledEvent(currentEvent, val) {
   var i = 0;
   var dateToAddSchedule = [];
 
-  while (currentStartDate.isBefore(until)) {
+  while (currentStartDate.isBefore(endDate, "day")) {
     if (i % interval === 0) {
       dateToAddSchedule.push({
         startDate: currentStartDate.clone().format(DATEFORMAT),
@@ -83,8 +84,8 @@ var addScheduledEvent = function addScheduledEvent(currentEvent, val) {
       });
     }
 
-    currentStartDate = currentStartDate.clone().add(freq, 'days');
-    currentEndDate = currentEndDate.clone().add(freq, 'days');
+    currentStartDate = currentStartDate.clone().add(freq, "days");
+    currentEndDate = currentEndDate.clone().add(freq, "days");
     i++;
   }
 
@@ -105,7 +106,7 @@ var icsToJson = function icsToJson(icsData) {
   var lines = icsData.split(NEW_LINE);
   var isAlarm = false;
   var hasRule = false;
-  var ruleValue = '';
+  var ruleValue = "";
 
   for (var i = 0, iLen = lines.length; i < iLen; ++i) {
     var line = lines[i];
@@ -155,11 +156,11 @@ var icsToJson = function icsToJson(icsData) {
         break;
 
       case START_DATE:
-        currentObj[keyMap[START_DATE]] = value;
+        currentObj[keyMap[START_DATE]] = (0, _moment.default)(value).format(DATEFORMAT);
         break;
 
       case END_DATE:
-        currentObj[keyMap[END_DATE]] = value;
+        currentObj[keyMap[END_DATE]] = (0, _moment.default)(value).format(DATEFORMAT);
         break;
 
       case DESCRIPTION:
