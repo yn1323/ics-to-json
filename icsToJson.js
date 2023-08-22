@@ -92,8 +92,9 @@ const icsToJson = (icsData) => {
     const line = lines[i];
     const lineData = line.split(":");
 
-    let key = lineData[0];
-    const value = lineData[1];
+    const colonIndex = line.indexOf(':');
+    let key = line.substring(0, colonIndex).trim();
+    const value = line.substring(colonIndex + 1).trim();
 
     if (key.indexOf(";") !== -1) {
       const keyParts = key.split(";");

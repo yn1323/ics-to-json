@@ -49,16 +49,16 @@ var clean = function clean(string) {
 var addScheduledEvent = function addScheduledEvent(currentEvent, val) {
   var conditions = val.split(";").reduce(function (acc, cur) {
     var _cur$split = cur.split("="),
-        _cur$split2 = _slicedToArray(_cur$split, 2),
-        k = _cur$split2[0],
-        v = _cur$split2[1];
+      _cur$split2 = _slicedToArray(_cur$split, 2),
+      k = _cur$split2[0],
+      v = _cur$split2[1];
 
     acc[k] = v;
     return acc;
   }, {});
   var FREQ = conditions.FREQ,
-      UNTIL = conditions.UNTIL,
-      INTERVAL = conditions.INTERVAL;
+    UNTIL = conditions.UNTIL,
+    INTERVAL = conditions.INTERVAL;
   if (!UNTIL) return [];
   var freq = frequencyMap[FREQ];
   var until = (0, _moment.default)(UNTIL, DATEFORMAT);
@@ -111,8 +111,9 @@ var icsToJson = function icsToJson(icsData) {
   for (var i = 0, iLen = lines.length; i < iLen; ++i) {
     var line = lines[i];
     var lineData = line.split(":");
-    var key = lineData[0];
-    var value = lineData[1];
+    var colonIndex = line.indexOf(':');
+    var key = line.substring(0, colonIndex).trim();
+    var value = line.substring(colonIndex + 1).trim();
 
     if (key.indexOf(";") !== -1) {
       var keyParts = key.split(";");
